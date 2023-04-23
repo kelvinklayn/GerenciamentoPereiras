@@ -84,12 +84,12 @@ namespace GerenciamentoPereiras
         {
             this.Enabled = false;
             var orders = context.Orders.Where(x => x.IsOpen == true).ToList();
-            clientsList.View = System.Windows.Forms.View.Details;
+            clientsList.View = View.Details;
             clientsList.Columns.Add("Código");
             clientsList.Columns.Add("Nome");
             int listViewSize = int.Parse(clientsList.Width.ToString());
-            clientsList.Columns[0].Width = (int)(listViewSize * 0.3);
-            clientsList.Columns[1].Width = (int)(listViewSize * 0.7);
+            clientsList.Columns[0].Width = 0;
+            clientsList.Columns[1].Width = listViewSize;
             clientsList.Columns[0].TextAlign = HorizontalAlignment.Center;
             clientsList.Columns[1].TextAlign = HorizontalAlignment.Center;
             ListViewItem listViewItem1;
@@ -111,8 +111,7 @@ namespace GerenciamentoPereiras
         private void productOrdersListView_Resize(object sender, EventArgs e)
         {
             int listViewSize = int.Parse(productOrdersGrid.Width.ToString());
-            productOrdersGrid.Columns[0].Width = (int)(listViewSize * 0.1);
-            productOrdersGrid.Columns[1].Width = (int)(listViewSize * 0.45);
+            productOrdersGrid.Columns[1].Width = (int)(listViewSize * 0.55);
             productOrdersGrid.Columns[2].Width = (int)(listViewSize * 0.05);
             productOrdersGrid.Columns[3].Width = (int)(listViewSize * 0.1);
             productOrdersGrid.Columns[4].Width = (int)(listViewSize * 0.05);
@@ -124,8 +123,7 @@ namespace GerenciamentoPereiras
         private void clientsList_Resize(object sender, EventArgs e)
         {
             int listViewSize = int.Parse(clientsList.Width.ToString());
-            clientsList.Columns[0].Width = (int)(listViewSize * 0.3);
-            clientsList.Columns[1].Width = (int)(listViewSize * 0.7);
+            clientsList.Columns[1].Width = listViewSize;
 
         }
 
@@ -154,8 +152,8 @@ namespace GerenciamentoPereiras
             }
 
             int listViewSize = int.Parse(productOrdersGrid.Width.ToString());
-            productOrdersGrid.Columns[0].Width = (int)(listViewSize * 0.1);
-            productOrdersGrid.Columns[1].Width = (int)(listViewSize * 0.45);
+            productOrdersGrid.Columns[0].Visible = false;
+            productOrdersGrid.Columns[1].Width = (int)(listViewSize * 0.55);
             productOrdersGrid.Columns[2].Width = (int)(listViewSize * 0.05);
             productOrdersGrid.Columns[3].Width = (int)(listViewSize * 0.1);
             productOrdersGrid.Columns[4].Width = (int)(listViewSize * 0.05);

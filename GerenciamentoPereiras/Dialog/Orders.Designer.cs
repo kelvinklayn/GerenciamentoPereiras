@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            ordersGroupList = new ListView();
             ordersList = new ListView();
             orderGrid = new DataGridView();
             totalOrder = new TextBox();
@@ -40,6 +39,7 @@
             panel2 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
+            ordersGroupList = new ListView();
             ((System.ComponentModel.ISupportInitialize)orderGrid).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -47,29 +47,17 @@
             panel4.SuspendLayout();
             SuspendLayout();
             // 
-            // ordersGroupList
-            // 
-            ordersGroupList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            ordersGroupList.Font = new Font("Arial", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            ordersGroupList.FullRowSelect = true;
-            ordersGroupList.Location = new Point(3, 49);
-            ordersGroupList.MultiSelect = false;
-            ordersGroupList.Name = "ordersGroupList";
-            ordersGroupList.Size = new Size(252, 624);
-            ordersGroupList.TabIndex = 2;
-            ordersGroupList.UseCompatibleStateImageBehavior = false;
-            ordersGroupList.View = View.List;
-            ordersGroupList.SelectedIndexChanged += ordersGroupList_SelectedIndexChanged;
-            // 
             // ordersList
             // 
             ordersList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             ordersList.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
             ordersList.FullRowSelect = true;
-            ordersList.Location = new Point(6, 52);
+            ordersList.HeaderStyle = ColumnHeaderStyle.None;
+            ordersList.Location = new Point(8, 62);
+            ordersList.Margin = new Padding(4);
             ordersList.MultiSelect = false;
             ordersList.Name = "ordersList";
-            ordersList.Size = new Size(215, 624);
+            ordersList.Size = new Size(276, 676);
             ordersList.TabIndex = 2;
             ordersList.UseCompatibleStateImageBehavior = false;
             ordersList.View = View.List;
@@ -90,30 +78,32 @@
             orderGrid.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            dataGridViewCellStyle1.Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
             dataGridViewCellStyle1.SelectionBackColor = Color.Black;
             dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             orderGrid.DefaultCellStyle = dataGridViewCellStyle1;
             orderGrid.EnableHeadersVisualStyles = false;
-            orderGrid.Location = new Point(22, 52);
+            orderGrid.Location = new Point(28, 62);
+            orderGrid.Margin = new Padding(4);
             orderGrid.MultiSelect = false;
             orderGrid.Name = "orderGrid";
             orderGrid.RowHeadersBorderStyle = DataGridViewHeaderBorderStyle.None;
             orderGrid.RowHeadersVisible = false;
             orderGrid.RowTemplate.Height = 25;
             orderGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            orderGrid.Size = new Size(743, 564);
+            orderGrid.Size = new Size(956, 633);
             orderGrid.TabIndex = 2;
             // 
             // totalOrder
             // 
             totalOrder.Anchor = AnchorStyles.Bottom | AnchorStyles.Right;
             totalOrder.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            totalOrder.Location = new Point(660, 643);
+            totalOrder.Location = new Point(857, 741);
+            totalOrder.Margin = new Padding(4);
             totalOrder.Name = "totalOrder";
-            totalOrder.Size = new Size(100, 26);
+            totalOrder.Size = new Size(128, 26);
             totalOrder.TabIndex = 2;
             // 
             // totalLabel
@@ -122,7 +112,8 @@
             totalLabel.AutoSize = true;
             totalLabel.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
             totalLabel.ForeColor = Color.White;
-            totalLabel.Location = new Point(618, 619);
+            totalLabel.Location = new Point(809, 719);
+            totalLabel.Margin = new Padding(4, 0, 4, 0);
             totalLabel.Name = "totalLabel";
             totalLabel.Size = new Size(46, 19);
             totalLabel.TabIndex = 2;
@@ -134,7 +125,8 @@
             ordersGroupLabel.AutoSize = true;
             ordersGroupLabel.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
             ordersGroupLabel.ForeColor = Color.White;
-            ordersGroupLabel.Location = new Point(96, 10);
+            ordersGroupLabel.Location = new Point(122, 32);
+            ordersGroupLabel.Margin = new Padding(4, 0, 4, 0);
             ordersGroupLabel.Name = "ordersGroupLabel";
             ordersGroupLabel.Size = new Size(44, 19);
             ordersGroupLabel.TabIndex = 2;
@@ -146,7 +138,8 @@
             orderLabel.AutoSize = true;
             orderLabel.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
             orderLabel.ForeColor = Color.White;
-            orderLabel.Location = new Point(69, 13);
+            orderLabel.Location = new Point(82, 36);
+            orderLabel.Margin = new Padding(4, 0, 4, 0);
             orderLabel.Name = "orderLabel";
             orderLabel.Size = new Size(92, 19);
             orderLabel.TabIndex = 2;
@@ -158,9 +151,10 @@
             panel1.BackColor = Color.Transparent;
             panel1.Controls.Add(ordersGroupLabel);
             panel1.Controls.Add(ordersGroupList);
-            panel1.Location = new Point(3, 3);
+            panel1.Location = new Point(4, 4);
+            panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(258, 689);
+            panel1.Size = new Size(332, 783);
             panel1.TabIndex = 3;
             // 
             // panel2
@@ -169,9 +163,10 @@
             panel2.BackColor = Color.Transparent;
             panel2.Controls.Add(orderLabel);
             panel2.Controls.Add(ordersList);
-            panel2.Location = new Point(267, 0);
+            panel2.Location = new Point(352, 0);
+            panel2.Margin = new Padding(4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(224, 692);
+            panel2.Size = new Size(288, 787);
             panel2.TabIndex = 1;
             // 
             // panel3
@@ -181,9 +176,10 @@
             panel3.Controls.Add(totalLabel);
             panel3.Controls.Add(totalOrder);
             panel3.Controls.Add(orderGrid);
-            panel3.Location = new Point(494, 0);
+            panel3.Location = new Point(651, 0);
+            panel3.Margin = new Padding(4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(776, 692);
+            panel3.Size = new Size(998, 787);
             panel3.TabIndex = 1;
             // 
             // panel4
@@ -193,18 +189,37 @@
             panel4.Controls.Add(panel2);
             panel4.Controls.Add(panel3);
             panel4.Controls.Add(panel1);
-            panel4.Location = new Point(12, 9);
+            panel4.Location = new Point(2, 1);
+            panel4.Margin = new Padding(4);
             panel4.Name = "panel4";
-            panel4.Size = new Size(1270, 700);
+            panel4.Size = new Size(1649, 797);
             panel4.TabIndex = 0;
+            // 
+            // ordersGroupList
+            // 
+            ordersGroupList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            ordersGroupList.Font = new Font("Arial", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            ordersGroupList.FullRowSelect = true;
+            ordersGroupList.HeaderStyle = ColumnHeaderStyle.None;
+            ordersGroupList.Location = new Point(4, 58);
+            ordersGroupList.Margin = new Padding(4);
+            ordersGroupList.MultiSelect = false;
+            ordersGroupList.Name = "ordersGroupList";
+            ordersGroupList.Size = new Size(323, 676);
+            ordersGroupList.TabIndex = 2;
+            ordersGroupList.UseCompatibleStateImageBehavior = false;
+            ordersGroupList.View = View.List;
+            ordersGroupList.SelectedIndexChanged += ordersGroupList_SelectedIndexChanged;
             // 
             // Orders
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(9F, 18F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1284, 707);
+            ClientSize = new Size(1651, 796);
             Controls.Add(panel4);
+            Font = new Font("Arial", 12F, FontStyle.Regular, GraphicsUnit.Point);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Margin = new Padding(4);
             Name = "Orders";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "Comandas";
@@ -221,8 +236,6 @@
         }
 
         #endregion
-
-        private ListView ordersGroupList;
         private ListView ordersList;
         private TextBox totalOrder;
         private Label totalLabel;
@@ -233,5 +246,6 @@
         private Panel panel3;
         private Panel panel4;
         private DataGridView orderGrid;
+        private ListView ordersGroupList;
     }
 }

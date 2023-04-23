@@ -306,18 +306,21 @@ namespace GerenciamentoPereiras
             labelClientList.BackColor = Color.Black;
             labelClientList.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             labelClientList.ForeColor = Color.White;
-            labelClientList.Location = new Point(12, 19);
+            labelClientList.Location = new Point(13, 30);
             labelClientList.Name = "labelClientList";
             labelClientList.Size = new Size(302, 21);
             labelClientList.TabIndex = 3;
-            labelClientList.Text = "Cliente";
+            labelClientList.Text = "Clientes";
             labelClientList.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // clientsList
             // 
             clientsList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left;
+            clientsList.BackColor = Color.White;
             clientsList.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             clientsList.FullRowSelect = true;
+            clientsList.GridLines = true;
+            clientsList.HeaderStyle = ColumnHeaderStyle.None;
             clientsList.Location = new Point(12, 55);
             clientsList.Margin = new Padding(15);
             clientsList.MultiSelect = false;

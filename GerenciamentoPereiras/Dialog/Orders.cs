@@ -40,8 +40,8 @@ namespace GerenciamentoPereiras.Dialog
             ordersGroupList.Columns.Add("Código");
             ordersGroupList.Columns.Add("Data");
             int listViewSize = int.Parse(ordersList.Width.ToString());
-            ordersGroupList.Columns[0].Width = (int)(listViewSize * 0.3);
-            ordersGroupList.Columns[1].Width = (int)(listViewSize * 0.7);
+            ordersGroupList.Columns[0].Width = 0;
+            ordersGroupList.Columns[1].Width = listViewSize;
             ordersGroupList.Columns[0].TextAlign = HorizontalAlignment.Center;
             ordersGroupList.Columns[1].TextAlign = HorizontalAlignment.Center;
             ListViewItem listViewItem1;
@@ -71,8 +71,8 @@ namespace GerenciamentoPereiras.Dialog
             orderGrid.Rows.Clear();
             var orders = context.Orders.Where(x => x.ordersGroupId == selectedOrderGroup).ToList();
             int listViewSize = int.Parse(ordersList.Width.ToString());
-            ordersList.Columns[0].Width = (int)(listViewSize * 0.3);
-            ordersList.Columns[1].Width = (int)(listViewSize * 0.7);
+            ordersList.Columns[0].Width = 0;
+            ordersList.Columns[1].Width = (int)listViewSize;
             ordersList.Columns[0].TextAlign = HorizontalAlignment.Center;
             ordersList.Columns[1].TextAlign = HorizontalAlignment.Center;
             ListViewItem listViewItem1;

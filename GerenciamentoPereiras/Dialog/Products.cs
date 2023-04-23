@@ -55,6 +55,7 @@ namespace GerenciamentoPereiras.Dialog
         {
             productsGrid.ColumnCount = 5;
             productsGrid.Columns[0].Name = "Codigo do Produto";
+            productsGrid.Columns[0].Visible = false;
             productsGrid.Columns[1].Name = "Nome do Produto";
             productsGrid.Columns[2].Name = "Categoria do Produto";
             productsGrid.Columns[3].Name = "Preço do Produto";

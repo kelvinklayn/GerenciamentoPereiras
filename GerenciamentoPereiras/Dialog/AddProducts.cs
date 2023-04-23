@@ -50,6 +50,7 @@ namespace GerenciamentoPereiras.Dialog
         {
             productsGrid.ColumnCount = 4;
             productsGrid.Columns[0].Name = "Codigo do Produto";
+            productsGrid.Columns[0].Visible = false;
             productsGrid.Columns[1].Name = "Nome do Produto";
             productsGrid.Columns[2].Name = "Categoria do Produto";
             productsGrid.Columns[3].Name = "Preço do Produto";
@@ -58,6 +59,10 @@ namespace GerenciamentoPereiras.Dialog
             productsGrid.Columns[1].ReadOnly = true;
             productsGrid.Columns[2].ReadOnly = true;
             productsGrid.Columns[3].ReadOnly = true;
+
+            productsGrid.Columns[1].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            productsGrid.Columns[2].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            productsGrid.Columns[3].HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
             productsGrid.Columns[1].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
             productsGrid.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
