@@ -22,7 +22,7 @@ namespace GerenciamentoPereiras
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            isActiveImg.Image = Properties.Resources.off;
+            isActiveImg.Image = Properties.Resources.switch_off;
             productOrdersGrid.Resize += new EventHandler(productOrdersListView_Resize);
             clientsList.Resize += new EventHandler(clientsList_Resize);
             SetClients();
@@ -38,7 +38,10 @@ namespace GerenciamentoPereiras
         {
             clientsList.Select();
             clientsList.Focus();
-            productOrdersGrid.Rows[0].Selected = false;
+            if (productOrdersGrid.Rows.Count > 0)
+            {
+                productOrdersGrid.Rows[0].Selected = false;
+            }
         }
 
         private void productOrdersGrid_cellClicked(object sender, DataGridViewCellEventArgs e)
@@ -288,13 +291,13 @@ namespace GerenciamentoPereiras
         {
             if (isSystemActive)
             {
-                isActiveImg.Image = Properties.Resources.on;
+                isActiveImg.Image = Properties.Resources.switch_on;
                 ordersGroup = new OrdersGroup();
                 context.OrdersGroups.Add(ordersGroup);
                 context.SaveChanges();
                 return;
             }
-            isActiveImg.Image = Properties.Resources.off;
+            isActiveImg.Image = Properties.Resources.switch_off;
         }
 
         private void finishOrderButton_Click(object sender, EventArgs e)

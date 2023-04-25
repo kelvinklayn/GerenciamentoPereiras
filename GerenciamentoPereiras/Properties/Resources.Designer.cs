@@ -83,9 +83,9 @@ namespace GerenciamentoPereiras.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap off {
+        public static System.Drawing.Bitmap switch_off {
             get {
-                object obj = ResourceManager.GetObject("off", resourceCulture);
+                object obj = ResourceManager.GetObject("switch-off", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +93,9 @@ namespace GerenciamentoPereiras.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        public static System.Drawing.Bitmap on {
+        public static System.Drawing.Bitmap switch_on {
             get {
-                object obj = ResourceManager.GetObject("on", resourceCulture);
+                object obj = ResourceManager.GetObject("switch-on", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

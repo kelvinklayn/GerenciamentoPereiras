@@ -36,10 +36,12 @@
             ordersGroupLabel = new Label();
             orderLabel = new Label();
             panel1 = new Panel();
+            ordersGroupList = new ListView();
             panel2 = new Panel();
             panel3 = new Panel();
             panel4 = new Panel();
-            ordersGroupList = new ListView();
+            dailyTotaltext = new TextBox();
+            dailyTotalLabel = new Label();
             ((System.ComponentModel.ISupportInitialize)orderGrid).BeginInit();
             panel1.SuspendLayout();
             panel2.SuspendLayout();
@@ -85,7 +87,7 @@
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             orderGrid.DefaultCellStyle = dataGridViewCellStyle1;
             orderGrid.EnableHeadersVisualStyles = false;
-            orderGrid.Location = new Point(28, 62);
+            orderGrid.Location = new Point(28, 106);
             orderGrid.Margin = new Padding(4);
             orderGrid.MultiSelect = false;
             orderGrid.Name = "orderGrid";
@@ -93,7 +95,7 @@
             orderGrid.RowHeadersVisible = false;
             orderGrid.RowTemplate.Height = 25;
             orderGrid.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            orderGrid.Size = new Size(956, 633);
+            orderGrid.Size = new Size(956, 589);
             orderGrid.TabIndex = 2;
             // 
             // totalOrder
@@ -115,9 +117,9 @@
             totalLabel.Location = new Point(809, 719);
             totalLabel.Margin = new Padding(4, 0, 4, 0);
             totalLabel.Name = "totalLabel";
-            totalLabel.Size = new Size(46, 19);
+            totalLabel.Size = new Size(56, 19);
             totalLabel.TabIndex = 2;
-            totalLabel.Text = "Total";
+            totalLabel.Text = "Total :";
             // 
             // ordersGroupLabel
             // 
@@ -157,6 +159,22 @@
             panel1.Size = new Size(332, 783);
             panel1.TabIndex = 3;
             // 
+            // ordersGroupList
+            // 
+            ordersGroupList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            ordersGroupList.Font = new Font("Arial", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
+            ordersGroupList.FullRowSelect = true;
+            ordersGroupList.HeaderStyle = ColumnHeaderStyle.None;
+            ordersGroupList.Location = new Point(4, 58);
+            ordersGroupList.Margin = new Padding(4);
+            ordersGroupList.MultiSelect = false;
+            ordersGroupList.Name = "ordersGroupList";
+            ordersGroupList.Size = new Size(323, 676);
+            ordersGroupList.TabIndex = 2;
+            ordersGroupList.UseCompatibleStateImageBehavior = false;
+            ordersGroupList.View = View.List;
+            ordersGroupList.SelectedIndexChanged += ordersGroupList_SelectedIndexChanged;
+            // 
             // panel2
             // 
             panel2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom;
@@ -173,6 +191,8 @@
             // 
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Right;
             panel3.BackColor = Color.Transparent;
+            panel3.Controls.Add(dailyTotalLabel);
+            panel3.Controls.Add(dailyTotaltext);
             panel3.Controls.Add(totalLabel);
             panel3.Controls.Add(totalOrder);
             panel3.Controls.Add(orderGrid);
@@ -195,21 +215,24 @@
             panel4.Size = new Size(1649, 797);
             panel4.TabIndex = 0;
             // 
-            // ordersGroupList
+            // dailyTotaltext
             // 
-            ordersGroupList.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            ordersGroupList.Font = new Font("Arial", 12F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point);
-            ordersGroupList.FullRowSelect = true;
-            ordersGroupList.HeaderStyle = ColumnHeaderStyle.None;
-            ordersGroupList.Location = new Point(4, 58);
-            ordersGroupList.Margin = new Padding(4);
-            ordersGroupList.MultiSelect = false;
-            ordersGroupList.Name = "ordersGroupList";
-            ordersGroupList.Size = new Size(323, 676);
-            ordersGroupList.TabIndex = 2;
-            ordersGroupList.UseCompatibleStateImageBehavior = false;
-            ordersGroupList.View = View.List;
-            ordersGroupList.SelectedIndexChanged += ordersGroupList_SelectedIndexChanged;
+            dailyTotaltext.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            dailyTotaltext.Location = new Point(857, 46);
+            dailyTotaltext.Name = "dailyTotaltext";
+            dailyTotaltext.Size = new Size(100, 26);
+            dailyTotaltext.TabIndex = 3;
+            // 
+            // dailyTotalLabel
+            // 
+            dailyTotalLabel.AutoSize = true;
+            dailyTotalLabel.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            dailyTotalLabel.ForeColor = Color.White;
+            dailyTotalLabel.Location = new Point(760, 18);
+            dailyTotalLabel.Name = "dailyTotalLabel";
+            dailyTotalLabel.Size = new Size(105, 19);
+            dailyTotalLabel.TabIndex = 4;
+            dailyTotalLabel.Text = "Total Diario :";
             // 
             // Orders
             // 
@@ -247,5 +270,7 @@
         private Panel panel4;
         private DataGridView orderGrid;
         private ListView ordersGroupList;
+        private Label dailyTotalLabel;
+        private TextBox dailyTotaltext;
     }
 }

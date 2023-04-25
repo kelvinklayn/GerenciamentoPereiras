@@ -24,6 +24,8 @@ namespace GerenciamentoPereiras.Dialog
         private int selectedOrder;
         public decimal orderTotal { get; set; }
 
+        public decimal dailyTotal { get; set; }
+
         private void Orders_Load(object sender, EventArgs e)
         {
             SetOrderGroup();
@@ -45,7 +47,6 @@ namespace GerenciamentoPereiras.Dialog
             ordersGroupList.Columns[0].TextAlign = HorizontalAlignment.Center;
             ordersGroupList.Columns[1].TextAlign = HorizontalAlignment.Center;
             ListViewItem listViewItem1;
-
 
             foreach (OrdersGroup order in ordersGroup)
             {
@@ -76,13 +77,23 @@ namespace GerenciamentoPereiras.Dialog
             ordersList.Columns[0].TextAlign = HorizontalAlignment.Center;
             ordersList.Columns[1].TextAlign = HorizontalAlignment.Center;
             ListViewItem listViewItem1;
-
+            dailyTotal = 0;
 
             foreach (Order order in orders)
             {
+                List<ProductOrder> productOrders = context.ProductOrders.Where(x => x.OrderId == order.Id).ToList();
+                foreach (ProductOrder productOrder in productOrders)
+                {
+                    dailyTotal += (productOrder.ValuePerItem * productOrder.Amount);
+                }
+
                 listViewItem1 = new ListViewItem(new string[] { order.Id.ToString(), order.Name }, -1);
                 ordersList.Items.Add(listViewItem1);
             }
+
+            dailyTotaltext.Text = "R$ " + dailyTotal.ToString();
+            totalOrder.Text = "R$ 0";
+
             this.Enabled = true;
         }
 
@@ -148,6 +159,7 @@ namespace GerenciamentoPereiras.Dialog
             this.Enabled = false;
 
             orderGrid.Rows.Clear();
+            orderTotal = 0;
             if (orderGrid.Columns.Count > 0)
             {
 
@@ -167,9 +179,8 @@ namespace GerenciamentoPereiras.Dialog
                     row1.Cells.Add(new DataGridViewTextBoxCell { Value = productOrder.ValuePerItem.ToString() });
                     orderGrid.Rows.Add(row1);
 
-                    total += (decimal)(productOrder.Amount * productOrder.ValuePerItem);
+                    orderTotal += (decimal)(productOrder.Amount * productOrder.ValuePerItem);
                 }
-                orderTotal = total;
 
                 totalOrder.Text = "R$  " + orderTotal.ToString();
             }

@@ -81,7 +81,7 @@ namespace GerenciamentoPereiras
             // isActiveImg
             // 
             isActiveImg.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            isActiveImg.Location = new Point(146, 561);
+            isActiveImg.Location = new Point(146, 549);
             isActiveImg.Name = "isActiveImg";
             isActiveImg.Size = new Size(150, 51);
             isActiveImg.TabIndex = 7;
