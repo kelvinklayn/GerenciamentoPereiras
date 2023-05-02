@@ -1,7 +1,7 @@
 using GerenciamentoPereiras.Data;
 using GerenciamentoPereiras.Dialog;
 using GerenciamentoPereiras.Models;
-
+using System.Globalization;
 
 namespace GerenciamentoPereiras
 {
@@ -9,6 +9,7 @@ namespace GerenciamentoPereiras
     {
         public MainScreen()
         {
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("pt-BR");
             InitializeComponent();
 
         }
