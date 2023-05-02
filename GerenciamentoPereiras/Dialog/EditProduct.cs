@@ -26,6 +26,12 @@ namespace GerenciamentoPereiras.Dialog
             productCategoryCombo.SelectedItem = category;
         }
 
+        public EditProduct()
+        {
+            InitializeComponent();
+            productCategoryCombo.DataSource = Enum.GetValues(typeof(Category));
+        }
+
         public Context context = new Context();
         private int idProduct { get; set; }
         private string nameProduct { get; set; }
@@ -36,16 +42,24 @@ namespace GerenciamentoPereiras.Dialog
 
         private void confirmButton_Click(object sender, EventArgs e)
         {
-            Product product = context.Products.Where(x => x.Id == idProduct).Single();
-
             nameProduct = nameProductText.Text;
             string price = (priceProductText.Text).Substring(3);
             priceProduct = decimal.Parse(price);
             categoryProduct = (Category)Enum.Parse(typeof(Category), productCategoryCombo.Text);
 
-            product.Name = nameProduct;
-            product.Price = priceProduct;
-            product.Category = categoryProduct;
+            if (idProduct != 0)
+            {
+                Product product = context.Products.Where(x => x.Id == idProduct).Single();
+                product.Name = nameProduct;
+                product.Price = priceProduct;
+                product.Category = categoryProduct;
+            }
+            else
+            {
+                Product product = new Product(nameProduct, categoryProduct, priceProduct);
+                context.Products.Add(product);
+            }
+
             context.SaveChanges();
             this.Close();
         }

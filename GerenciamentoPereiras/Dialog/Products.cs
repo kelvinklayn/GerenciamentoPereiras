@@ -185,6 +185,13 @@ namespace GerenciamentoPereiras.Dialog
             }
         }
 
+        private void newProductButton_Click(object sender, EventArgs e)
+        {
+            EditProduct editProduct = new EditProduct();
+            editProduct.Show();
+            editProduct.FormClosed += new FormClosedEventHandler(editProduct_Closing);
+        }
+
         private void editProduct_Closing(object sender, FormClosedEventArgs e)
         {
             productsGrid.Rows.Clear();

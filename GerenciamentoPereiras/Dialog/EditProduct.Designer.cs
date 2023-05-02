@@ -75,6 +75,7 @@
             // 
             // productCategoryCombo
             // 
+            productCategoryCombo.DropDownStyle = ComboBoxStyle.DropDownList;
             productCategoryCombo.FormattingEnabled = true;
             productCategoryCombo.Location = new Point(43, 112);
             productCategoryCombo.Name = "productCategoryCombo";

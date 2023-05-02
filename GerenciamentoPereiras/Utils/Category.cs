@@ -14,6 +14,7 @@ namespace GerenciamentoPereiras.Utils
         Bebida,
         Suco,
         Porção,
+        Adicional,
         
     }
 }

@@ -176,7 +176,7 @@ namespace GerenciamentoPereiras.Dialog
                     var row1 = new DataGridViewRow();
                     row1.Cells.Add(new DataGridViewTextBoxCell { Value = product.Name });
                     row1.Cells.Add(new DataGridViewTextBoxCell { Value = productOrder.Amount.ToString() });
-                    row1.Cells.Add(new DataGridViewTextBoxCell { Value = productOrder.ValuePerItem.ToString() });
+                    row1.Cells.Add(new DataGridViewTextBoxCell { Value = "R$ " + productOrder.ValuePerItem.ToString() });
                     orderGrid.Rows.Add(row1);
 
                     orderTotal += (decimal)(productOrder.Amount * productOrder.ValuePerItem);

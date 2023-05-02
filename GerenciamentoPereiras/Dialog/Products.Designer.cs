@@ -36,12 +36,14 @@
             categoryFilterLabel = new Label();
             productsGrid = new DataGridView();
             productsLabel = new Label();
+            newProductButton = new Button();
             ((System.ComponentModel.ISupportInitialize)productsGrid).BeginInit();
             SuspendLayout();
             // 
             // categoryFilterCombo
             // 
             categoryFilterCombo.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            categoryFilterCombo.DropDownStyle = ComboBoxStyle.DropDownList;
             categoryFilterCombo.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
             categoryFilterCombo.FormattingEnabled = true;
             categoryFilterCombo.Location = new Point(610, 48);
@@ -94,8 +96,8 @@
             dataGridViewCellStyle1.BackColor = SystemColors.Window;
             dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = Color.Black;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionBackColor = Color.White;
+            dataGridViewCellStyle1.SelectionForeColor = Color.Black;
             dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
             productsGrid.DefaultCellStyle = dataGridViewCellStyle1;
             productsGrid.Location = new Point(12, 107);
@@ -126,12 +128,26 @@
             productsLabel.TabIndex = 5;
             productsLabel.Text = "Produtos";
             // 
+            // newProductButton
+            // 
+            newProductButton.BackColor = Color.Black;
+            newProductButton.Font = new Font("Arial", 12F, FontStyle.Bold, GraphicsUnit.Point);
+            newProductButton.ForeColor = Color.White;
+            newProductButton.Location = new Point(192, 23);
+            newProductButton.Name = "newProductButton";
+            newProductButton.Size = new Size(86, 63);
+            newProductButton.TabIndex = 6;
+            newProductButton.Text = "Novo Produto";
+            newProductButton.UseVisualStyleBackColor = false;
+            newProductButton.Click += newProductButton_Click;
+            // 
             // Products
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Red;
             ClientSize = new Size(800, 450);
+            Controls.Add(newProductButton);
             Controls.Add(productsLabel);
             Controls.Add(productsGrid);
             Controls.Add(categoryFilterLabel);
@@ -148,7 +164,6 @@
             ResumeLayout(false);
             PerformLayout();
         }
-
         #endregion
 
         private ComboBox categoryFilterCombo;
@@ -157,5 +172,6 @@
         private Label categoryFilterLabel;
         private DataGridView productsGrid;
         private Label productsLabel;
+        private Button newProductButton;
     }
 }
