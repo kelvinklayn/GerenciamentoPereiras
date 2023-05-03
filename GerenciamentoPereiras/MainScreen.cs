@@ -248,6 +248,7 @@ namespace GerenciamentoPereiras
             clientsList.Clear();
             SetClients();
             ChangeProductsOrderGrid();
+            isAddClientEnable();
         }
 
 
@@ -285,7 +286,7 @@ namespace GerenciamentoPereiras
         private void isAddClientEnable()
         {
             addClient.Visible = isSystemActive;
-            AddProductButton.Visible = isSystemActive;
+            AddProductButton.Visible = isSystemActive && clientsList.Items.Count > 0;
         }
 
         private void LoadNewPict()
@@ -306,9 +307,11 @@ namespace GerenciamentoPereiras
             Order finishedOrder = (Order)context.Orders.Where(x => x.Id == selectedOrderId).First();
             finishedOrder.IsOpen = false;
             context.SaveChanges();
+            totalOrder.Text = "R$ 0";
             clientsList.Clear();
             SetClients();
             ChangeProductsOrderGrid();
+            isAddClientEnable();
 
         }
 
@@ -319,6 +322,7 @@ namespace GerenciamentoPereiras
 
         private void ChangeProductsOrderGrid()
         {
+            productOrdersGrid.Rows.Clear();
             if (clientsList.SelectedItems.Count > 0)
             {
                 var selectedItemText = clientsList.SelectedItems[0].Text;

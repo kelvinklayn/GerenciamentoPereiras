@@ -167,6 +167,9 @@ namespace GerenciamentoPereiras.Dialog
                 case 4:
                     categoryFilter = Category.Porção;
                     break;
+                case 5:
+                    categoryFilter = Category.Adicional;
+                    break;
             }
             SetProducts();
         }
